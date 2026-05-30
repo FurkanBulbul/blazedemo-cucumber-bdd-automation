@@ -1,0 +1,5 @@
+
+.vscode/
+allure-results/
+target/
+.idea/
