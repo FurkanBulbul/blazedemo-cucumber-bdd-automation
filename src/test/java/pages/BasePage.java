@@ -9,7 +9,6 @@ public abstract class BasePage {
 
     public BasePage() {
         this.driver = Driver.getDriver();
-        // Bu satır alt sınıflardaki tüm @FindBy anotasyonlarını otomatik aktif eder
-        PageFactory.initElements(this.driver, this); 
+        PageFactory.initElements(this.driver, this);
     }
 }

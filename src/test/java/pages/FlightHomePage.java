@@ -1,34 +1,32 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class FlightHomePage {
-    WebDriver driver;
+public class FlightHomePage extends BasePage {
+     
 
+    @FindBy(name = "fromPort")
+    private WebElement departureDropdown;
 
-    private By departureDropdown = By.name("fromPort");
-    private By destinationDropdown = By.name("toPort");
-    private By findFlightsButton = By.xpath("//input[@value='Find Flights']");
+    @FindBy(name = "toPort")
+    private WebElement destinationDropdown;
 
-
-    public FlightHomePage(WebDriver driver) {
-        this.driver = driver;
-    }
-
+    @FindBy(xpath = "//input[@value='Find Flights']")
+    private WebElement findFlightsButton;
 
     public void selectDeparture(String departure) {
-        Select select = new Select(driver.findElement(departureDropdown));
+        Select select = new Select(departureDropdown);  
         select.selectByVisibleText(departure);
     }
 
     public void selectDestination(String destination) {
-        Select select = new Select(driver.findElement(destinationDropdown));
+        Select select = new Select(destinationDropdown);
         select.selectByVisibleText(destination);
     }
 
     public void clickFindFlights() {
-        driver.findElement(findFlightsButton).click();
+        findFlightsButton.click();
     }
 }

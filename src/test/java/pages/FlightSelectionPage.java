@@ -1,19 +1,14 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class FlightSelectionPage {
-    WebDriver driver;
+public class FlightSelectionPage extends BasePage {
 
-
-    private By firstFlightButton = By.xpath("(//input[@type='submit'])[1]");
-
-    public FlightSelectionPage(WebDriver driver) {
-        this.driver = driver;
-    }
+    @FindBy(xpath = "(//input[@type='submit'])[1]")
+    private WebElement firstFlightButton;
 
     public void chooseFirstFlight() {
-        driver.findElement(firstFlightButton).click();
+        firstFlightButton.click();
     }
 }
